@@ -11,7 +11,7 @@ INFO:paramiko.transport:Authentication (password) successful!
 WARNING:root:156.1.255.252
  连接不上设备,请检查网络是否正常通信
 WARNING:root:>>>>>>>>>>disp cu | include sysname 命令执行结果如下:>>>>>>>>>>
-
+你好 我是jn中的logging
 2020-12-02 09:21:44.228 +08:00
 sysname JN-JC-YC-SHmy-KFW-21
 WARNING:root:>>>>>>>>>>disp cu | include sysname 命令执行结果如下:>>>>>>>>>>
