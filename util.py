@@ -157,13 +157,13 @@ class SSH_Client():
     def logout_host(self):
         self.ssh.disconnect()
 
-	# 用于上传文件使用的函数
+    # 用于上传文件使用的函数
     def upload_file(self, cmds, licenses):
         info = self.do_cmd_info(cmds)
         self.do_upload_file(cmds,licenses,info)
 
 
-	# 定义更改配置函数，主要是使用了send_config_set函数执行命令
+    # 定义更改配置函数，主要是使用了send_config_set函数执行命令
     def do_conf_cmd(self,cmds):
         reply_list = []
         with open(cmds) as cmd_obj:
@@ -248,7 +248,7 @@ class RunMethod(Process):
             print('您输入的功能还未开发！') 
             
             
-    # 界面显示的选项
+    # 该功能没有开发完成
     def Display(self):
         ssh_client = SSH_Client(self.host)
         if ssh_client.login_host(self.host):
@@ -311,7 +311,7 @@ class RunMethod(Process):
             except Exception as e:
                 print(self.host,'出现错误！ ',e)
             time.sleep(1)
-	# 按键 8 使用的函数
+    # 按键 8 使用的函数
     def Save_File(self):
         result = self.Cmd_Handler_2()
         if result:
@@ -335,7 +335,7 @@ class RunMethod(Process):
 
 
 
-	# 按键 3 使用的函数
+    # 按键 3 使用的函数
     def main_func(self):
         cmds = 'cmd.txt'  # 存放执行命令文件，相对路径
         cmds_info = './config_text/cmd_info.txt'
