@@ -1,4 +1,4 @@
-disp cu
-disp ip interface brief
-disp ip rout
-disp interface brief
+disp cu
+disp ip interface brief
+disp ip rout
+disp interface brief

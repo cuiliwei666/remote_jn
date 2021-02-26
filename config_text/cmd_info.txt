@@ -1,4 +1,4 @@
-disp cu | include sysname
-disp esn
-disp ip interface brief | include .254/
+disp cu | include sysname
+disp esn
+disp ip interface brief | include .254/
 disp ip interface brief | include Eth-Trunk1.200
