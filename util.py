@@ -248,7 +248,7 @@ class RunMethod(Process):
             print('您输入的功能还未开发！') 
             
             
-	# 界面显示的选项
+    # 界面显示的选项
     def Display(self):
         ssh_client = SSH_Client(self.host)
         if ssh_client.login_host(self.host):
@@ -256,7 +256,7 @@ class RunMethod(Process):
             reply = ssh_client.ssh.send_command(command)
             logging.warning('>' * 10+self.host+'  ' + command.rstrip() + ' 命令执行结果如下:' + '>' * 10 + '\n' + reply)
             
-	# 按键 4 使用的函数
+    # 按键 4 使用的函数
     def Cmd_Handler(self):
         # 查找esn号使用的，文件放在config_text下的cmd_info.txt文件下
         cmds_info = './config_text/cmd_info.txt'
@@ -273,7 +273,7 @@ class RunMethod(Process):
                 result = ssh_client.run_2(cmds)
                 time.sleep(1)
                 return result
-	# 按键 6 使用的函数
+    # 按键 6 使用的函数
     def License_Active_Handler(self):
         ssh_client = SSH_Client(self.host)
         if ssh_client.login_host(self.host):
@@ -281,7 +281,7 @@ class RunMethod(Process):
                 ssh_client.license_active(self.licenses)
                 time.sleep(1)
 
-	# 按键 5 使用的函数
+    # 按键 5 使用的函数
     def Judge_Handler(self):
         cmds = 'cmd.txt'  # 存放执行命令文件，相对路径
         ssh_client = SSH_Client(self.host)
@@ -289,7 +289,7 @@ class RunMethod(Process):
             ssh_client.judge_license()
             time.sleep(1)
 
-	# 按键 2 使用的函数
+    # 按键 2 使用的函数
     def upload_Handler(self):
         cmds = 'cmd.txt'  # 存放执行命令文件，相对路径
         cmds_info = './config_text/cmd_info.txt'
@@ -301,7 +301,7 @@ class RunMethod(Process):
             time.sleep(1)
 
 
-	# 按键 1 使用的函数
+    # 按键 1 使用的函数
     def Cmd_Conf_Handler(self):
         cmds = 'config_text/conf_txt.txt'  # 存放执行命令文件，相对路径
         ssh_client = SSH_Client(self.host)
