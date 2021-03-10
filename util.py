@@ -7,8 +7,38 @@ import re
 import csv
 import os
 from multiprocessing import Process
+from threading import Thread
 # from v1.my_devices import device_list as devices
 
+
+
+class ExecuteCommand(Thread):
+    def __init__(self, client, command):
+        super(ExecuteCommand, self).__init__()
+        self.client = client
+        self.command = command
+
+    def run(self):
+        if self.command == 'quit':
+            self.client.logout_host()
+        else:
+            # reply = self.client.ssh.send_config_set(self.command) # 使用方括号下的命令
+            reply = self.client.ssh.send_command(self.command)      # 使用尖括号下的命令
+            print(reply)
+
+
+class JudgeAvaliable(Thread):
+    def __init__(self, host, avaliable_list):
+        super(JudgeAvaliable, self).__init__()
+        self.host = host
+        self.avaliable_list = avaliable_list
+
+    def run(self):
+        ssh_client = SSH_Client(self.host)
+        if ssh_client.login_host(self.host):
+            self.avaliable_list.append(ssh_client)
+        else:
+            self.avaliable_list.append(None)
 
 
 
@@ -205,7 +235,7 @@ class SSH_Client():
                     logging.warning('激活过程出现问题，请登录设备', self.host, '查看状态！')
                     continue
 
-class RunMethod(Process):
+class RunMethod(Thread):
     def getfiledir(self):
         license_lists = os.listdir('/wei/tftp_server_folders')
         file_saves = []
